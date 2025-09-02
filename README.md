@@ -22,3 +22,8 @@ Issues sugeridas: Crear Curso, Editar Curso, Eliminar Curso, Listar Cursos.
 
 ## Despliegue (opcional)
 Puedes usar Netlify/Vercel; sirve `dist` como sitio estático.
+
+## Guía rápida: Crear Curso
+- En la página **Cursos**, presiona **+ Nuevo**.
+- Completa el formulario (título obligatorio) y guarda.
+- Se persiste en **localStorage**.
