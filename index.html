@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso Online App</title>
+    <link rel="icon" href="/public/logo.svg" />
+    <style>
+      :root { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+      body { margin: 0; background: #0b1020; color: #e8ecf4; }
+      .container { max-width: 960px; margin: 0 auto; padding: 24px; }
+      .nav { display:flex; gap:12px; align-items:center; padding:16px 24px; background:#0e1630; border-bottom:1px solid #1e2a55; position:sticky; top:0; }
+      .nav a { color:#a7b5ff; text-decoration:none; font-weight:600; }
+      .brand { display:flex; align-items:center; gap:10px; margin-right:auto; color:#c9d4ff; }
+      .card { background:#111a3a; border:1px solid #1f2b59; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.25); }
+      .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap:16px; }
+      .btn { background:#5b7bff; border:none; color:#fff; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:700; }
+      .btn.secondary { background:transparent; color:#9ab0ff; border:1px solid #2a3a6b; }
+      .btn.danger { background:#ff5b7b; }
+      .field { display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
+      .input, .textarea { background:#0b1330; color:#e8ecf4; border:1px solid #24336f; border-radius:10px; padding:10px 12px; }
+      .textarea { min-height:80px; resize: vertical; }
+      .muted { color:#98a2c7; }
+      .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+      .spacer { height: 16px; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/index.js"></script>
+  </body>
+</html>
