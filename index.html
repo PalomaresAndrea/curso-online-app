@@ -1,36 +1,81 @@
 <!doctype html>
 <html lang="es">
   <head>
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Curso Online App</title>
-    <link rel="icon" href="/public/logo.svg" />
+
+    <!-- Favicon: usar ruta relativa para que Parcel lo procese -->
+    <link rel="icon" href="./public/logo.svg" />
+
     <style>
-      :root { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
-      body { margin: 0; background: #0b1020; color: #e8ecf4; }
-      .container { max-width: 960px; margin: 0 auto; padding: 24px; }
-      .nav { display:flex; gap:12px; align-items:center; padding:16px 24px; background:#0e1630; border-bottom:1px solid #1e2a55; position:sticky; top:0; }
-      .nav a { color:#a7b5ff; text-decoration:none; font-weight:600; }
-      .brand { display:flex; align-items:center; gap:10px; margin-right:auto; color:#c9d4ff; }
-      .card { background:#111a3a; border:1px solid #1f2b59; border-radius:14px; padding:16px; box-shadow:0 8px 24px rgba(0,0,0,.25); }
-      .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap:16px; }
-      .btn { background:#5b7bff; border:none; color:#fff; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:700; }
-      .btn.secondary { background:transparent; color:#9ab0ff; border:1px solid #2a3a6b; }
-      .btn.danger { background:#ff5b7b; }
-      .field { display:flex; flex-direction:column; gap:6px; margin-bottom:10px; }
-      .input, .textarea { background:#0b1330; color:#e8ecf4; border:1px solid #24336f; border-radius:10px; padding:10px 12px; }
-      .textarea { min-height:80px; resize: vertical; }
-      .muted { color:#98a2c7; }
-      .row { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-      .spacer { height: 16px; }
-   .btn { transition: transform .15s ease, box-shadow .15s ease; }
-.btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(0,0,0,.25); }
+      :root{
+        /* Paleta Sand & Latte (claro, cálido) */
+        --bg:#F7F5EF;         /* arena muy clara */
+        --surface:#FFFFFF;    /* blanco tarjetas */
+        --card:#FFFFFF;
+        --border:#E4E0D8;     /* borde cálido */
+        --text:#2B2B2B;       /* texto principal */
+        --muted:#6B6A67;      /* texto secundario */
+        --primary:#3A5A40;    /* verde olivo (acciones) */
+        --accent:#D97A5C;     /* terracota (detalles) */
+      }
 
-.card { transition: transform .15s ease, box-shadow .15s ease; }
-.card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.30); }
+      :root{ font-family:"Nunito", ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica, Arial; }
+      *{ box-sizing:border-box }
+      body{
+        margin:0; color:var(--text);
+        background:
+          radial-gradient(1200px 600px at 15% -10%, rgba(217,122,92,.08), transparent),
+          radial-gradient(1000px 500px at 85% -10%, rgba(58,90,64,.06), transparent),
+          var(--bg);
+      }
+      .container{ max-width:960px; margin:0 auto; padding:24px; }
 
-.nav { backdrop-filter: saturate(140%) blur(4px); }
+      .nav{
+        display:flex; gap:12px; align-items:center; padding:14px 24px;
+        background:rgba(255,255,255,.85);
+        backdrop-filter:saturate(140%) blur(6px);
+        border-bottom:1px solid var(--border);
+        position:sticky; top:0; z-index:10;
+      }
+      .nav a{ color:#3A3A3A; text-decoration:none; font-weight:700 }
+      .nav a:hover{ color:var(--primary) }
+      .brand{ display:flex; align-items:center; gap:10px; margin-right:auto }
+      .brand span{ color:#2F3B2F; font-weight:800; letter-spacing:.3px }
 
+      .card{
+        background:var(--card); border:1px solid var(--border); border-radius:14px; padding:16px;
+        box-shadow:0 8px 18px rgba(0,0,0,.06);
+        transition:transform .12s ease, box-shadow .12s ease;
+      }
+      .card:hover{ transform:translateY(-1px); box-shadow:0 12px 24px rgba(0,0,0,.08) }
+      .grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:16px }
+
+      .btn{
+        background:var(--primary); color:#fff; border:none; padding:10px 14px; border-radius:10px;
+        font-weight:800; cursor:pointer;
+        box-shadow:0 6px 14px rgba(58,90,64,.18);
+        transition:transform .1s ease, box-shadow .1s ease, opacity .1s ease;
+      }
+      .btn:hover{ transform:translateY(-1px); box-shadow:0 10px 22px rgba(58,90,64,.22) }
+      .btn.secondary{ background:#FFFFFF; color:var(--primary); border:1px solid var(--primary); box-shadow:none }
+      .btn.danger{ background:#C94B5A }
+
+      .field{ display:flex; flex-direction:column; gap:6px; margin-bottom:10px }
+      .input,.textarea{
+        background:#FFF; color:var(--text); border:1px solid var(--border); border-radius:10px; padding:10px 12px;
+      }
+      .input:focus,.textarea:focus{ outline:2px solid rgba(58,90,64,.25) }
+      .textarea{ min-height:80px; resize:vertical }
+      .muted{ color:var(--muted) }
+      .row{ display:flex; gap:8px; align-items:center; flex-wrap:wrap }
+      .spacer{ height:16px }
     </style>
   </head>
   <body>
